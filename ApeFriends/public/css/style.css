@@ -1,0 +1,96 @@
+
+body {
+    background-color: #f2f2f2;
+    font-family: 'Ruda', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #555;
+
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+
+}
+
+/* Titles */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Ruda', sans-serif;
+    font-weight: 900;
+    color: #333;
+}
+
+
+p {
+    line-height: 28px;
+    margin-bottom: 25px;
+}
+
+/* ================== MAIN SECTIONS ================== */
+
+#headerwrap {
+	background: url(../images/home.jpg) no-repeat center top;
+	margin-top: 0px;
+	padding-top: 50px;
+	background-attachment: relative;
+	background-position: center center;
+	min-height: 450px;
+	width: 100%;
+
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+@media screen and (max-width:767px){
+	#headerwrap {
+    /*　画面サイズが768px以上の場合読み込む　*/
+    background: url(../images/home.jpg) no-repeat center top;
+	margin-top: 0px;
+	padding-top: 50px;
+	background-attachment: relative;
+	background-position: center center;
+	min-height: 450px;
+	width: 100%;
+
+    -webkit-background-size: 50%;
+    -moz-background-size: 50%;
+    -o-background-size: 50%;
+    background-size: 50%;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+	}
+}
+
+#headerwrap h1 {
+	margin-top: 60px;
+	color: white;
+	font-size: 50px;
+	font-weight: 900;
+	letter-spacing: 1px;
+	 text-shadow: 1px 1px 0 #000,
+               -1px 1px 0 #000,
+               1px -1px 0 #000,
+               -1px -1px 0 #000;
+}
+@media screen and (max-width:767px){
+	#headerwrap h1 {
+		margin-top: 40px;
+		color: white;
+		font-size: 36px;
+		font-weight: 700;
+		letter-spacing: 1px;
+	}
+}
+
+
+#headerwrap .img-responsive {
+	margin: 0 auto;
+}
+
