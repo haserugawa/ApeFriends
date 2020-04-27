@@ -1,19 +1,32 @@
 $(function() {
 
+	var platform_radio_value;
+	var play_time_value;
+
 	$.ajaxSetup({
 		headers : {
 			'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
 		}
 	});
 
-	// プロフィール更新ボタン押下時、ajax処理
+	// プロフィール更新ボタン押下時、POST処理
 	$('#profile_onsubmit').click(function() {
+
+		if(platform_radio_value == null){
+			platform_radio_value = $('input[name="platform"]:checked').val();
+		}
+		if(play_time_value == null){
+			play_time_value = $('input[name="play_time"] option:selected').val();
+		}
+
 		$.ajax({
 			type : 'POST', // GETかPOSTか
 			url : 'profile/update_job',
 			data : {
 				'name' : $('#profile_update_name').val(),
-				'self_introduction' : $('#self_introduction').val()
+				'self_introduction' : $('#self_introduction').val(),
+				'platform' : platform_radio_value,
+				'play_time' : play_time_value,
 			}
 		}).done(function(results) {
 			$('#profile_update_name').html(results);// 展開したいタグのidを指定
@@ -61,4 +74,16 @@ $(function() {
 	$('#alert_close_btn').on('click', function() {
 		$('#alert_space').alert( 'close' );
 	});
+
+
+	//プロフィール情報操作時に送信用パラメータとしてセット
+	$('input[name="platform"]').change(function() {
+		platform_radio_value = $(this).val();
+	})
+
+	$('select[name="play_time"]').change(function() {
+		play_time_value = $(this).val();
+	})
+
 });
+

@@ -1,20 +1,11 @@
 <div class="container mt-7 p-lg-9 bg-light">
 
-	<!--アイコンファイル選択-->
-	<div class="custom-file mb-5">
-		<label for="name">アイコン画像</label> <input type="file"
-			class="custom-file-input pb-3" id="customFile" required> <label
-			class="custom-file-label pb-3" for="customFile">ファイル選択...</label>
-		<div class="invalid-feedback">ファイルを選択してください</div>
-	</div>
-	<!--/アイコンファイル選択-->
-
 	<!--氏名-->
 	<div class="form-row mb-4">
 		<div class="col-md-6">
 			<label for="name">ニックネーム</label> <input type="text"
-				class="form-control" id="profile_update_name" value="{{ Auth::user()->name }}"
-				placeholder="ニックネーム" required>
+				class="form-control" id="profile_update_name"
+				value="{{ Auth::user()->name }}" placeholder="ニックネーム" required>
 			<div class="invalid-feedback">入力してください</div>
 		</div>
 	</div>
@@ -23,23 +14,38 @@
 	<!--プラットフォーム-->
 	<div class="form-group">
 		<div class="row mb-4">
-			<label class="col-form-label col-lg-4">プラットフォーム</label>
+			<label class="col-form-label col-12">プラットフォーム</label>
 			<div class="col-sm-10">
-				<div class="custom-control custom-radio custom-control-inline">
-					<input type="radio" id="customRadioInline1" name="pratform"
-						class="custom-control-input" value="1" required> <label
-						class="custom-control-label" for="customRadioInline1">PS4</label>
-				</div>
-				<div class="custom-control custom-radio custom-control-inline">
-					<input type="radio" id="customRadioInline2" name="pratform"
-						class="custom-control-input" value="2"> <label
-						class="custom-control-label" for="customRadioInline2">Xbox</label>
-				</div>
-				<div class="custom-control custom-radio custom-control-inline">
-					<input type="radio" id="customRadioInline3" name="pratform"
-						class="custom-control-input" value="3"> <label
-						class="custom-control-label" for="customRadioInline3">PC</label>
-				</div>
+			@for ($i = 1; $i < 4; $i++)
+    				<input type="radio" name="platform"
+    			@if($i == $profile->platform)
+    				checked = "checked"
+    			@endif
+    			@if($i == 1)
+	 				 value="1"> <label>PS4</label>
+				@elseif($i == 2)
+					 value="2"> <label>Xbox</label>
+				@elseif($i == 3)
+					 value="3"> <label>PC</label>
+				@endif
+			@endfor
+			</div>
+		</div>
+	</div>
+
+	<div class="form-group pb-3">
+		<div class="row mb-4">
+			<label class="col-form-label col-12">プレイする時間帯</label>
+				<div class="col-sm-10"><select
+				name="play_time"> @foreach ($m_play_times as $m_play_time)
+				<option
+				@if($profile->play_time == $m_play_time->code)
+					selected
+				@endif
+					  value="{{$m_play_time->code}}">{{$m_play_time->value}}</option>
+
+				@endforeach
+			</select>
 			</div>
 		</div>
 	</div>
@@ -48,7 +54,7 @@
 	<div class="form-group pb-3">
 		<label for="Textarea">自己紹介</label>
 		<textarea class="form-control" id="self_introduction" rows="4"
-			placeholder="自己紹介" required></textarea>
+			placeholder="自己紹介" required>{{ $profile->self_introduction }}</textarea>
 	</div>
 	<!--/自己紹介-->
 
