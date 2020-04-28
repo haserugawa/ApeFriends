@@ -3,19 +3,21 @@
 	<div class="row">
 		<div class="col-12 col-md-6">
 			<div class="card" id="profile_update">
-				<div class="card-header">
-					<h1>My profile</h1>
-				</div>
-				<div class="card-body">@include('inc.profile_edit')</div>
+				<a class="card-header" data-toggle="collapse" href="#profile-card-body" aria-expanded="true">
+					<h1>プロフィール<span><i class="fas fa-angle-down"></i></span></h1>
+				</a>
+				<div class="card-body collapse show" id="profile-card-body">@include('inc.profile_edit')</div>
 			</div>
 		</div>
 		<div class="col-12 col-md-6">
-			<div class="card">
-				<div class="card-header">
-					<h1>ユーザー検索</h1>
+			<div class="card" id="user_search">
+				<a class="card-header" data-toggle="collapse" href="#search-card-body" aria-expanded="true">
+					<h1>ユーザー検索<span><i class="fas fa-angle-down"></i></span></h1>
 
+				</a>
+				<div class="card-body collapse show" id="search-card-body">
+					@include('inc.user_search')
 				</div>
-				<div class="card-body"></div>
 			</div>
 		</div>
 	</div>

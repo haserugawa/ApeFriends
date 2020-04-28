@@ -98,3 +98,10 @@ p {
 #profile_update .custom-file{
  margin-top:10px;
 }
+
+#profile_update a:hover { text-decoration: none;}
+
+#user_search a:hover { text-decoration: none;}
+
+.card {margin-top:10px;}
+.card h1 span {float:right;margin-right:20px;}

@@ -16,7 +16,7 @@ $(function() {
 			platform_radio_value = $('input[name="platform"]:checked').val();
 		}
 		if(play_time_value == null){
-			play_time_value = $('input[name="play_time"] option:selected').val();
+			play_time_value = $('select[name="play_time"] option:selected').val();
 		}
 
 		$.ajax({
@@ -84,6 +84,21 @@ $(function() {
 	$('select[name="play_time"]').change(function() {
 		play_time_value = $(this).val();
 	})
+
+	//ホーム画面カードのコラプス時のアイコン表示
+	$("#profile_update").on("show.bs.collapse", function(){
+    	$("#profile_update h1 span").html('<i class="fas fa-angle-down"></i>');
+	});
+	$("#profile_update").on("hide.bs.collapse", function(){
+	    $("#profile_update h1 span").html('<i class="fas fa-angle-up"></i>');
+	  });
+
+	$("#user_search").on("show.bs.collapse", function(){
+    	$("#user_search h1 span").html('<i class="fas fa-angle-down"></i>');
+	});
+	$("#user_search").on("hide.bs.collapse", function(){
+	    $("#user_search h1 span").html('<i class="fas fa-angle-up"></i>');
+	  });
 
 });
 

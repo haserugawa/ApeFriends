@@ -34,8 +34,15 @@ class ProfileController extends Controller {
 
 			$db_user->name = $request->input ( 'name' );
 			$db_profile->self_introduction = $request->input ( 'self_introduction' );
-			$db_profile->platform = $request->input ( 'platform' );
-			$db_profile->play_time = $request->input ( 'play_time');
+
+			if(!empty($request->input ( 'platform' ))){
+				$db_profile->platform = $request->input ( 'platform' );
+			}
+
+
+			if(!empty($request->input ( 'play_time'))){
+				$db_profile->play_time = $request->input ( 'play_time');
+			}
 
 			$db_user->save ();
 			$db_profile->save ();
