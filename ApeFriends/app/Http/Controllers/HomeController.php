@@ -37,4 +37,5 @@ class HomeController extends Controller {
 
 		return view ( 'home', compact ( 'user', 'profile', 'm_weapons', 'm_characters', 'm_play_times', 'm_play_styles' ) );
 	}
+
 }

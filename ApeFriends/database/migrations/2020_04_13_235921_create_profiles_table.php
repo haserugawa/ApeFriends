@@ -15,7 +15,8 @@ class CreateProfilesTable extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
 			$table->id();
-			$table->string('email',256)->references('email')->on('users');
+			$table->string('email')->references('email')->on('users');
+			$table->string('name')->references('name')->on('users');
 			$table->boolean('isset_profile_icon')->nullable();
 			$table->string('self_introduction',1000)->nullable();
 			$table->integer('platform')->nullable();
