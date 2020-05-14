@@ -37,3 +37,6 @@ Route::get('/profile/index', 'ProfileController@index');
 
 //profile更新処理(非同期)
 Route::post('/profile/update_job','ProfileController@profile_update_job');
+
+//プロフィール検索
+Route::post('/profile/search', 'ProfileController@profile_search');

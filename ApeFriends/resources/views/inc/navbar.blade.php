@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="{{ route('welcome') }}"> {{ Config::get('app.name') }}</a>
+		<a class="navbar-brand" href="{{ route('home') }}"> {{ Config::get('app.name') }}</a>
 		<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替">
     <span class="navbar-toggler-icon"></span> </button>
 
@@ -11,7 +11,7 @@
 					href="{{ route('register') }}">{{ __('Register') }}</a></li>
 				@else
 				<li class="nav-item dropdown">
-				    <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</a>
+				    <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->email }}</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<a class="dropdown-item" href="{{ route('logout') }}"
 							onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Logout') }} </a>
